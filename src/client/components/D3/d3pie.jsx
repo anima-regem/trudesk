@@ -6,7 +6,7 @@ import * as d3 from 'vendor/d3/d3.min'
 import 'd3pie'
 import * as c3 from 'c3'
 
-export default function D3Pie (props) {
+export default function D3Pie(props) {
   const pieChart = useRef()
   let mappedColors = []
 
@@ -40,7 +40,7 @@ export default function D3Pie (props) {
 
   return (
     <div>
-      <div ref={pieChart}></div>
+      <div ref={pieChart} role="img" aria-label="Pie chart showing data distribution"></div>
     </div>
   )
 }

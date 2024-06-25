@@ -27,6 +27,8 @@ class DropdownItem extends React.Component {
     return (
       <li className={closeOnClick ? 'uk-dropdown-close' : ''}>
         <a
+          role="menuitem"
+          tabIndex="0"
           href={href}
           close-uk-dropdown={closeOnClick.toString()}
           className={(!href ? 'no-ajaxy' : '') + (extraClass ? ' ' + extraClass : '')}

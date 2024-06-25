@@ -36,7 +36,7 @@ class DatePicker extends React.Component {
 
   render () {
     const { value, small, name, validation, readOnly } = this.props
-
+    const ariaLabel = 'Select a date';
     return (
       <Fragment>
         <input
@@ -50,6 +50,10 @@ class DatePicker extends React.Component {
           data-validation={validation}
           style={this.style || { width: '97%' }}
           defaultValue={value ? helpers.formatDate(value, this.props.format) : ''}
+          role="widget"
+          aria-label={ariaLabel}
+          aria-invalid={validation ? 'true' : 'false'}
+          aria-valuenow={value ? helpers.formatDate(value, this.props.format) : ''}
         />
       </Fragment>
     )

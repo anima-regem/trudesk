@@ -7,25 +7,25 @@ import { MdOutlineArrowForwardIos } from 'react-icons/md'
 import './breadcrumbs.sass'
 
 class Breadcrumbs extends React.Component {
-  constructor (props) {
+  constructor(props) {
     super(props)
   }
 
-  render () {
+  render() {
     const { classes, inPageTitle } = this.props
     const style = inPageTitle ? { height: 69 } : {}
     return (
-      <div className={clsx('breadcrumbs', classes)} style={style}>
+      <div className={clsx('breadcrumbs', classes)} style={style} aria-label="Breadcrumb">
         {this.props.links.map(link => {
           if (link.active) {
-            return <h4 key={link.url}>{link.title}</h4>
+            return <h4 key={link.url} aria-current="page">{link.title}</h4>
           } else {
             return (
               <Fragment key={link.url}>
-                <Link to={link.url} className={clsx(link.active && 'active')}>
+                <Link to={link.url} className={clsx(link.active && 'active')} aria-label={`Breadcrumb link to ${link.title}`}>
                   {link.title}
                 </Link>
-                <MdOutlineArrowForwardIos style={{ width: 16, height: 16 }} />
+                <MdOutlineArrowForwardIos style={{ width: 16, height: 16 }} aria-hidden="true" />
               </Fragment>
             )
           }

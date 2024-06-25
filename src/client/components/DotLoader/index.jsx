@@ -32,6 +32,8 @@ const DotLoader = ({ active, animate }) => {
 
   return (
     <div
+      aria-live="polite" 
+      aria-busy={active ? "true" : "false"}
       ref={loaderRef}
       className={clsx('loader-wrapper', !active && !animate && 'hide')}
       style={{
@@ -76,6 +78,8 @@ const DotLoader = ({ active, animate }) => {
           style={{ width: 140, height: 75 }}
           viewBox='0 0 288.9 70.1'
           preserveAspectRatio='xMidYMid meet'
+          role="img" 
+          aria-label="Loading"
         >
           <g id='g' style={{ width: '100%', height: '100%' }}>
             <circle className='s1' cx='35.9' cy='82' r='10' />
